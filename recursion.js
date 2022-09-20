@@ -99,19 +99,21 @@ function gatherStrings(obj, out = []) {
 function binarySearch(arr, val) {
   //split arr.length by half,
 
-  if(arr.length === 0) return false;
+  if (arr.length === 0) return false;
 
-  if(arr.length === 1){
-    if(arr[0] === val) {
+  if (arr.length === 1) {
+    debugger
+    if (arr[0] === val) {
       return true;
-    }else return false;
+    } else return false;
 
   }
 
-  if(arr[arr.length/2] > val){
-    return binarySearch(arr.slice(0,arr.length/2), val)
-  }else{
-    return binarySearch(arr.slice((arr.length/2), arr.length), val)
+  if (arr[Math.floor(arr.length / 2)] > val) {
+    return binarySearch(arr.slice(0, arr.length / 2), val)
+  } else {
+    debugger
+    return binarySearch(arr.slice((arr.length / 2), arr.length), val)
   }
 
 }
@@ -120,21 +122,23 @@ function binarySearch(arr, val) {
 /** binarySearch: given a sorted array of numbers, and a value,
  * return the index of that value (or -1 if val is not present). */
 
-function binarySearchIndex(arr, val, i = arr.length/2) {
-  if(arr.length === 0) return -1;
+function binarySearchIndex(arr, val, i = Math.ceil(arr.length / 2 )) {
+  if (arr.length === 0) return -1;
 
-  if(arr.length === 1){
-    if(arr[0] === val) {
+  if (arr.length === 1) {
+    if (arr[0] === val) {
       return i;
-    }else return -1;
+    } else return -1;
   }
-
-  if(arr[arr.length/2] > val){
-    i -= ((arr.length -1 )/2);
-    return binarySearchIndex(arr.slice(0,(arr.length)/2), val, i)
-  }else{
-    i += ((arr.length - 1)/2);
-    return binarySearchIndex(arr.slice((arr.length/2), arr.length), val, i)
+  //[1,2,3,4]
+  if (arr[Math.floor(arr.length / 2)] > val) {
+    i -= Math.ceil(arr.length / 4);
+    debugger;
+    return binarySearchIndex(arr.slice(0, (arr.length) / 2), val, i)
+  } else {
+    i += Math.floor(arr.length / 4);
+    debugger;
+    return binarySearchIndex(arr.slice((arr.length / 2), arr.length), val, i)
   }
 }
 
