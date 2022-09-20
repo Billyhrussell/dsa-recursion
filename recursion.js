@@ -33,11 +33,10 @@ function find(arr, val, i = 0) {
 
   if (arr.length === i) return false;
 
-  if (arr[i] === val) {
-    return true;
-  } else {
-    return find(arr, val, i + 1)
-  }
+  if (arr[i] === val) return true;
+
+  return find(arr, val, i + 1)
+
 
 }
 
@@ -46,11 +45,10 @@ function find(arr, val, i = 0) {
 function isPalindrome(str, i = 0) {
   if (str.length / 2 < i) return true;
 
-  if (str[i] === str[str.length - 1 - i]) {
-    return isPalindrome(str, i + 1);
-  } else {
-    return false;
-  }
+  if (str[i] === str[str.length - 1 - i]) return isPalindrome(str, i + 1);
+
+  return false;
+
 
 }
 
@@ -69,11 +67,10 @@ function revString(str) {
 function findIndex(arr, val, i = 0) {
   if (arr.length === i) return -1;
 
-  if (arr[i] === val) {
-    return i;
-  } else {
-    return findIndex(arr, val, i + 1)
-  }
+  if (arr[i] === val) return i;
+
+  return findIndex(arr, val, i + 1)
+
 }
 
 /** gatherStrings: given an object, return an array of all of the string values. */
@@ -94,39 +91,39 @@ function gatherStrings(obj, out = []) {
 
 }
 
-  // FURTHER STUDY
+// FURTHER STUDY
 
-  /** binarySearch: given a sorted array of numbers, and a value,
-   * return true if val is in array, false if not present). */
+/** binarySearch: given a sorted array of numbers, and a value,
+ * return true if val is in array, false if not present). */
 
-  function binarySearch(arr, val) {
+function binarySearch(arr, val) {
 
-  }
-
-
-  /** binarySearch: given a sorted array of numbers, and a value,
-   * return the index of that value (or -1 if val is not present). */
-
-  function binarySearchIndex(arr, val) {
-
-  }
-
-  // you might find the above two problems easier if you change the function signature to:
-  //
-  // function binarySearch(arr, val, left = 0, right = arr.length) {
-  //
-  // }
+}
 
 
-  module.exports = {
-    product,
-    longest,
-    everyOther,
-    find,
-    isPalindrome,
-    findIndex,
-    revString,
-    gatherStrings,
-    binarySearch,
-    binarySearchIndex,
-  };
+/** binarySearch: given a sorted array of numbers, and a value,
+ * return the index of that value (or -1 if val is not present). */
+
+function binarySearchIndex(arr, val) {
+
+}
+
+// you might find the above two problems easier if you change the function signature to:
+//
+// function binarySearch(arr, val, left = 0, right = arr.length) {
+//
+// }
+
+
+module.exports = {
+  product,
+  longest,
+  everyOther,
+  find,
+  isPalindrome,
+  findIndex,
+  revString,
+  gatherStrings,
+  binarySearch,
+  binarySearchIndex,
+};
